@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Random Chuck Norris Joke:
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="joke; else loading">
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title> {{ joke.value }} </ion-card-title>
+        </ion-card-header>
+    </ion-card>
+  </ng-container>
+
+  <br><br>
+
+  <ion-title>
+    Categories:
+  </ion-title>
+
+  <br>
+
+  <ng-container *ngFor="let item of categories; index as i">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> {{item}} </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
+
+
+  <ng-template #loading>
+    <ion-spinner name="crescent"></ion-spinner>
+  </ng-template>
+
+</ion-content>
